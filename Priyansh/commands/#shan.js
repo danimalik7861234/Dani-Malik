@@ -14,12 +14,12 @@ module.exports.handleEvent = async ({ api, event, Users, Currencies, args, utils
   var { threadID, messageID } = event;
   let react = event.body.toLowerCase();
   if(react.includes("shan khan") ||
-     react.includes("Shaan Khan") || react.includes("SHAAN") || react.includes("shaan") ||
-react.includes("shan") ||
-react.includes("SHAAN KHAN") ||     
-react.includes("Shaan")) {
+     react.includes("Shaan Khan") || react.includes("") || react.includes("") ||
+react.includes("") ||
+react.includes("") ||     
+react.includes("")) {
     var msg = {
-        body: `${name} 𝑻𝑼𝑴 𝑵𝑬 𝑩𝑯𝑼𝑳𝑨𝒀𝑨 𝑶𝑼𝑹 𝑯𝑼𝑴 𝑪𝑯𝑨𝑳𝑬 𝑨𝑨𝒀𝑬💞✿`,attachment: fs.createReadStream(__dirname + `/noprefix//received_1236460420763390.jpeg`)
+        body: `${name} 𝑻𝑼𝑴 𝑵𝑬 𝑩𝑯𝑼𝑳𝑨𝒀𝑨 𝑶𝑼𝑹 𝑯𝑼𝑴 𝑪𝑯𝑨𝑳𝑬 𝑨𝑨𝒀𝑬💞✿`,attachment: fs.createReadStream(__dirname + `/noprefix//received_1236460.jpeg`)
       }
       api.sendMessage(msg, threadID, messageID);
     api.setMessageReaction("💋", event.messageID, (err) => {}, true)
