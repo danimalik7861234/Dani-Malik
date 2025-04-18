@@ -1,101 +1,112 @@
 module.exports.config = {
-  name: "animegirl",
+  name: "eng",
   version: "1.0.0",
   hasPermssion: 0,
-  credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
-  description: "Random Loli Pics",
-  commandCategory: "nsfw",
-  usages: "lolilewd",
-  cooldowns: 5,
+  credits: "Khoa",
+  description: "It's a compound :>",
+  usePrefix: true,
+  commandCategory: "fun",
+  usages: "",
   dependencies: {
-    "request":"",
-    "fs-extra":"",
-    "axios":""
-  }
-    
-};
-
-module.exports.run = async({api,event,args,Users,Threads,Currencies}) => {
-const axios = global.nodemodule["axios"];
-const request = global.nodemodule["request"];
-const fs = global.nodemodule["fs-extra"];
-  var link = [
-
-     "https://i.imgur.com/2iXk7mU.jpg",
-     "https://i.imgur.com/OQQeOP3.jpg",
-     "https://i.imgur.com/bMM8iJZ.jpg",
-     "https://i.imgur.com/vJBXAhy.jpg",
-     "https://i.imgur.com/C3b91UO.jpg",
-     "https://i.imgur.com/iQbs8eX.jpg",
-     "https://i.imgur.com/ZkpN7kz.jpg",
-     "https://i.imgur.com/rfzt2WQ.jpg",
-     "https://i.imgur.com/KSJQf1f.jpg",
-     "https://i.imgur.com/BJ6yXNe.jpg",
-     "https://i.imgur.com/IMubWyZ.jpg",
-     "https://i.imgur.com/bXHiz1E.jpg",
-     "https://i.imgur.com/6TF2Xft.jpg",
-     "https://i.mgur.com/eab5Ex9.jpg",
-     "https://i.imgur.com/ZLCFLkt.jpg",
-     "https://i.imgur.com/dfBFRCY.jpg",
-     "https://i.imgur.com/8hEm7Ib.jpg",
-     "https://i.imgur.com/VjrmG8l.jpg",
-     "https://i.imgur.com/g0rKS8v.jpg",
-     "https://i.imgur.com/pwIiuie.jpg",
-     "https://i.imgur.com/3JSCTMb.jpg",
-     "https://i.imgur.com/cwaipdJ.jpg",
-     "https://i.imgur.com/6YrFPL6.jpg",
-     "https://i.imgur.com/hefR6oA.jpg",
-     "https://i.imgur.com/IEellAV.jpg",
-     "https://i.imgur.com/sIIKN0X.jpg",
-     "https://i.imgur.com/U1dHNbT.jpg",
-     "https://i.imgur.com/fWsdzoT.jpg",
-     "https://i.imgur.com/9rwW06s.jpg",
-     "https://i.imgur.com/kCtN9ET.jpg",
-     "https://i.imgur.com/IfdtKRK.jpg",
-     "https://i.mgur.com/lvbHmrc.jpg",
-     "https://i.imgur.com/YQQ4OSq.jpg",
-     "https://i.imgur.com/byXallB.jpg",
-     "https://i.imgur.com/COb8HI9.jpg",
-     "https://i.imgur.com/xFIa63u.jpg",
-     "https://i.imgur.com/7JKSRQi.jpg",
-     "https://i.imgur.com/EADdeTw.jpg",
-     "https://i.imgur.com/zW5Yjr6.jpg",
-     "https://i.imgur.com/i0lZw0Z.jpg",
-     "https://i.imgur.com/COu7WrN.jpg",
-     "https://i.imgur.com/z7RmDnI.jpg",
-     "https://i.imgur.com/owd3yEE.jpg",
-     "https://i.imgur.com/g5zU3Mg.jpg",
-     "https://i.imgur.com/1M8Qo3e.jpg",
-     "https://i.imgur.com/vVynRQK.jpg",
-     "https://i.imgur.com/RHoJdo4.jpg",
-     "https://i.imgur.com/NhnPV3T.jpg",
-     "https://i.imgur.com/i9C8TaY.jpg",
-     "https://i.imgur.com/JL99iUN.jpg",
-     "https://i.imgur.com/4sZxV7H.jpg",
-     "https://i.imgur.com/9ij2ZBZ.jpg",
-     "https://i.imgur.com/qEJ1Bac.jpg",
-     "https://i.imgur.com/TaxJ5C0.jpg",
-     "https://i.mgur.com/kzUdnNU.jpg",
-     "https://i.imgur.com/yAr7DHH.jpg",
-     "https://i.imgur.com/dYZ3Fvm.jpg",
-     "https://i.imgur.com/EteGnuY.jpg",
-     "https://i.imgur.com/E5axqu9.jpg",
-     "https://i.imgur.com/hZxona6.jpg",
-     "https://i.imgur.com/5HsEx6v.jpg",
-     "https://i.imgur.com/r4G6tQi.jpg",
-     "https://i.imgur.com/3eMPpUl.jpg",
-     "https://i.imgur.com/tasryGt.jpg",
-     "https://i.imgur.com/rzlJZst.jpg",
-     "https://i.imgur.com/4gx3rnh.jpg",
-     "https://i.imgur.com/j4WDARE.jpg",
-     "https://i.imgur.com/J9rhsQn.jpg",
-     "https://i.imgur.com/tMwtFht.jpg",
-     "https://i.imgur.com/AXmBgGk.jpg"
-     
-    ];
-      var callback = () => api.sendMessage({body:`Random Loli Pic\nNumber of photos: ${link.length}`,attachment: fs.createReadStream(__dirname + "/cache/1.jpg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.jpg"), event.messageID);  
-      return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/1.jpg")).on("close",() => callback()); 
-    
-
+        "axios": "",
+        "fs-extra": ""
+  },
+  cooldowns: 15
 }
+
+module.exports.run = async function ({ args, Users, Threads, api, event, Currencies }) {
+  const { loadImage, createCanvas } = require("canvas");
+  const fs = global.nodemodule["fs-extra"];
+  const axios = global.nodemodule["axios"];
+  let pathImg = __dirname + "/cache/background.png";
+  let pathAvt1 = __dirname + "/cache/Avtmot.png";
+  let pathAvt2 = __dirname + "/cache/Avthai.png";
   
+  var id1 = event.senderID;
+  var name1 = await Users.getNameUser(id1);
+  var ThreadInfo = await api.getThreadInfo(event.threadID);
+  var all = ThreadInfo.userInfo
+  for (let c of all) {
+    if (c.id == id1) var gender1 = c.gender;
+  };
+  const botID = api.getCurrentUserID();
+  let ungvien = [];
+  if(gender1 == "FEMALE"){
+    for (let u of all) {
+      if (u.gender == "MALE") {
+      if (u.id !== id1 && u.id !== botID) ungvien.push(u.id)
+      }
+    }
+  }
+  else if(gender1 == "MALE"){
+    for (let u of all) {
+      if (u.gender == "FEMALE") {
+      if (u.id !== id1 && u.id !== botID) ungvien.push(u.id)
+      }
+    }
+  }
+  else {
+  for (let u of all) {
+      if (u.id !== id1 && u.id !== botID) ungvien.push(u.id)
+    }
+  }
+  var id2 = ungvien[Math.floor(Math.random() * ungvien.length)];
+  var name2 = await Users.getNameUser(id2);
+  var rd1 = Math.floor(Math.random() * 100) + 1;
+  var cc = ["0", "-1", "99,99", "-99", "-100", "101", "0,01"];
+  var rd2 = cc[Math.floor(Math.random() * cc.length)];
+  var djtme = [`${rd1}`, `${rd1}`, `${rd1}`, `${rd1}`, `${rd1}`, `${rd2}`, `${rd1}`, `${rd1}`, `${rd1}`, `${rd1}`];
+  
+  var tile = djtme[Math.floor(Math.random() * djtme.length)];
+
+  var background = [
+  "https://i.postimg.cc/wjJ29HRB/background1.png",
+  "https://i.postimg.cc/zf4Pnshv/background2.png",
+  "https://i.postimg.cc/5tXRQ46D/background3.png"
+  ];
+  var rd = background[Math.floor(Math.random() * background.length)];
+  
+  let getAvtmot = (
+    await axios.get(
+      `https://graph.facebook.com/${id1}/picture?width=720&height=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`,
+      { responseType: "arraybuffer" }
+    )
+  ).data;
+  fs.writeFileSync(pathAvt1, Buffer.from(getAvtmot, "utf-8"));
+
+  let getAvthai = (
+    await axios.get(
+      `https://graph.facebook.com/${id2}/picture?width=720&height=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`,
+      { responseType: "arraybuffer" }
+    )
+  ).data;
+  fs.writeFileSync(pathAvt2, Buffer.from(getAvthai, "utf-8"));
+
+  let getbackground = (
+    await axios.get(`${rd}`, {
+      responseType: "arraybuffer",
+    })
+  ).data;
+  fs.writeFileSync(pathImg, Buffer.from(getbackground, "utf-8"));
+
+  let baseImage = await loadImage(pathImg);
+  let baseAvt1 = await loadImage(pathAvt1);
+  let baseAvt2 = await loadImage(pathAvt2);
+  let canvas = createCanvas(baseImage.width, baseImage.height);
+  let ctx = canvas.getContext("2d");
+  ctx.drawImage(baseImage, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(baseAvt1, 100, 150, 300, 300);
+  ctx.drawImage(baseAvt2, 900, 150, 300, 300);
+  const imageBuffer = canvas.toBuffer();
+  fs.writeFileSync(pathImg, imageBuffer);
+  fs.removeSync(pathAvt1);
+  fs.removeSync(pathAvt2);
+  return api.sendMessage({ body: `Congratulations💫🎉, ${name1} Your Engagement Has Fixed with ${name2}\nBe HappY AlwaYs🖤`,
+            mentions: [{
+          tag: `${name2}`,
+          id: id2
+        }], attachment: fs.createReadStream(pathImg) },
+      event.threadID,
+      () => fs.unlinkSync(pathImg),
+      event.messageID);
+}
