@@ -19,7 +19,7 @@ const axios = global.nodemodule["axios"];
 const request = global.nodemodule["request"];
 const fs = global.nodemodule["fs-extra"];
    var hi = ["☟  ========== ☟ ==========  ☟                                                         ●===========================●                              𝐎𝐰𝐧𝐞𝐫 ➻  ────  ╔╬⓼★⓼╃───────➣™
-🄼🅁 🄱🄾🅃 🄾🅆🄽🄴🅁 🅂🄷🄰🄰🄽𝄠━─━Ⓔ⧐
+𝐃𝐀𝐍𝐈 𝐌𝐀𝐋𝐈𝐊𝄠━─━Ⓔ⧐
 ╰✾✾®️╀✿✿╀─━ↈⓇ⧐ :"];
   var know = hi[Math.floor(Math.random() * hi.length)];
   var link = [
