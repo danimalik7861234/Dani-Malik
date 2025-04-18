@@ -1,74 +1,43 @@
 module.exports.config = {
-	name: "board",
-	version: "1.0.1",
-	hasPermssion: 0,
-	credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
-	description: "Comment on the board ( ͡° ͜ʖ ͡°)",
-	commandCategory: "general",
-	usages: "bang [text]",
-	cooldowns: 10,
-	dependencies: {
-		"canvas":"",
-		 "axios":"",
-		 "fs-extra":""
-	}
-};
+    name: "payar",
+    version: "1.0.0",
+    hasPermssion: 2,
+    credits: "...",
+    description: "5 বারের জন্য ক্রমাগত বন্ধুর ট্যাগ ট্যাগ করুন\nসেই ব্যক্তিকে আত্মা কলিং বলা যেতে পারে",
+    commandCategory: "othre",
+    usages: " please @mention",
+    cooldowns: 10,
+    dependencies: {
+        "fs-extra": "",
+        "axios": ""
+    }
+}
 
-module.exports.wrapText = (ctx, text, maxWidth) => {
-	return new Promise(resolve => {
-		if (ctx.measureText(text).width < maxWidth) return resolve([text]);
-		if (ctx.measureText('W').width > maxWidth) return resolve(null);
-		const words = text.split(' ');
-		const lines = [];
-		let line = '';
-		while (words.length > 0) {
-			let split = false;
-			while (ctx.measureText(words[0]).width >= maxWidth) {
-				const temp = words[0];
-				words[0] = temp.slice(0, -1);
-				if (split) words[1] = `${temp.slice(-1)}${words[1]}`;
-				else {
-					split = true;
-					words.splice(1, 0, temp.slice(-1));
-				}
-			}
-			if (ctx.measureText(`${line}${words[0]}`).width < maxWidth) line += `${words.shift()} `;
-			else {
-				lines.push(line.trim());
-				line = '';
-			}
-			if (words.length === 0) lines.push(line.trim());
-		}
-		return resolve(lines);
-	});
-} 
+module.exports.run = async function({ api, args, Users, event}) {
+    var mention = Object.keys(event.mentions)[0];
+    if(!mention) return api.sendMessage("You must @mention 1 person you want propose to", event.threadID);
+ let name =  event.mentions[mention];
+    var arraytag = [];
+        arraytag.push({id: mention, tag: name});
+    var a = function (a) { api.sendMessage(a, event.threadID); }
+a("Let's go");
+setTimeout(() => {a({body: "سنو عزیز، میں تم سے بہت پیار کرتا ہوں۔🥰।" + " " + name, mentions: arraytag})}, 3000);
+setTimeout(() => {a({body: "ایک بار تم سے بات نہ کروں تو میرا دل کیسے جانتا ہے☺️" + " " + name, mentions: arraytag})}, 5000);
+setTimeout(() => {a({body: "یہ دماغ ہر وقت صرف تمہیں ہی کیوں ڈھونڈتا ہے۔" + " " + name, mentions: arraytag})}, 7000);
+setTimeout(() => {a({body: "آپ کے خیالات میرے دماغ سے کبھی نہیں نکلیں گے 🙂\n کیونکہ آپ میرے خیالوں میں ہیں💚‎ " + " " + name, mentions: arraytag})}, 9000);
+setTimeout(() => {a({body: "جنت مجھے نہیں چاہیے کیونکہ میں نے تمہیں پایا\n\nخواب میں نہیں دیکھنا چاہتا کیونکہ تم میرا خواب ہو🥀🥰💚 " + " " + name, mentions: arraytag})}, 12000);
+setTimeout(() => {a({body: "جب سے تم آنکھوں میں بسی ہو،\n\nمجھے تمہارے سوا کچھ پسند نہیں❤️ " + " " + name, mentions: arraytag})}, 15000);
+setTimeout(() => {a({body: "جانے کیوں تم اتنی خوبصورت ہو کہ میں تمہیں دیکھ نہیں سکتا😻🥰💚 " + " " + name, mentions: arraytag})}, 17000);
+setTimeout(() => {a({body: "‎مجھے سمجھ نہیں آتی کہ میں تمہیں دیکھ کر اتنا اچھا کیوں محسوس کرتا ہوں۔💚 " + " " + name, mentions: arraytag})}, 20000);
+setTimeout(() => {a({body: "ایک چاہت ہے صرف آپکے ساتھ جینے کی\nورنہ محبّت توہ کسی کے ساتھ بھی ہو سکتی ہے🙈🥀🥰 " + " " + name, mentions: arraytag})},23000);
+setTimeout(() => {a({body: "اگر تمہیں لگتا ہے کہ تم خوش نہیں ہو تو تم میرے سینے میں لوٹ آؤ، میں تمہیں ساکت رکھوں گا!!💚 ।" + " " + name, mentions: arraytag})}, 25000);
+setTimeout(() => {a({body: "میں ہمیشہ آپ کو یہاں یا وہاں اپنے ساتھ چاہتا ہوں۔⚜— -!!-।" + " " + name, mentions: arraytag})}, 28500);
+setTimeout(() => {a({body: "༉༎༉😽!!لکیر تیرے لیے ہے، تیرے عشق کے ابدی جادو میں ڈوب گیا ہوں۔🙈 ༅༎•❤️🌸" + " " + name, mentions: arraytag})},31000);
+setTimeout(() => {a({body: "دن کے آخر میں مجھے آپ کی ضرورت ہے۔😽" + " " + name, mentions: arraytag})}, 36000);
+setTimeout(() => {a("~🖤میں تم سے آسمان کے برابر خواب کے ساتھ پیار کرتا ہوں۔়🐰🦋🥰")}, 39000);
+setTimeout(() =>{a("میر اہاتھ تھام لو بس اتنا کافی ہے\nپھر خوشی ملے یا غم وہ میر انصیب")}, 47000);
 
-module.exports.run = async function({ api, event, args }) {
-	let { senderID, threadID, messageID } = event;
-	const { loadImage, createCanvas } = require("canvas");
-	const fs = global.nodemodule["fs-extra"];
-	const axios = global.nodemodule["axios"];
-	let pathImg = __dirname + '/cache/bang.png';// rename the file as you like
-	var text = args.join(" ");
-	if (!text) return api.sendMessage("Enter the content of the comment on the board", threadID, messageID);
-	let getPorn = (await axios.get(`https://i.imgur.com/Jl7sYMm.jpeg`, { responseType: 'arraybuffer' })).data; // photo link
-	fs.writeFileSync(pathImg, Buffer.from(getPorn, 'utf-8'));
-	let baseImage = await loadImage(pathImg);
-	let canvas = createCanvas(baseImage.width, baseImage.height);
-	let ctx = canvas.getContext("2d");
-	ctx.drawImage(baseImage, 0, 0, canvas.width, canvas.height);
-	ctx.font = "bold 20px Valera";
-	ctx.fillStyle = "#FFFFFF";
-	ctx.textAlign = "start";
-	let fontSize = 20;
-	while (ctx.measureText(text).width > 2250) {
-		fontSize--;
-		ctx.font = `bold ${fontSize}px Valera, sans-serif`;
-	}
-	const lines = await this.wrapText(ctx, text, 440);
-	ctx.fillText(lines.join('\n'), 85,100);//comment position
-	ctx.beginPath();
-	const imageBuffer = canvas.toBuffer();
-	fs.writeFileSync(pathImg, imageBuffer);
-return api.sendMessage({ attachment: fs.createReadStream(pathImg) }, threadID, () => fs.unlinkSync(pathImg), messageID);        
-  }
+
+
+  
+}
