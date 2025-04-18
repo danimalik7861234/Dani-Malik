@@ -1,83 +1,30 @@
 module.exports.config = {
-  name: "anhdaden",
+  name: "girlvideo",
   version: "1.0.0",
   hasPermssion: 0,
-  credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
-  description: "White brother :v",
-  commandCategory: "Edit-IMG",
-  usages: "[text 1] | [text 2]",
-  cooldowns: 10
-};
-module.exports.wrapText = (ctx, text, maxWidth) => {
-  return new Promise((resolve) => {
-    if (ctx.measureText(text).width < maxWidth) return resolve([text]);
-    if (ctx.measureText("W").width > maxWidth) return resolve(null);
-    const words = text.split(" ");
-    const lines = [];
-    let line = "";
-    while (words.length > 0) {
-      let split = false;
-      while (ctx.measureText(words[0]).width >= maxWidth) {
-        const temp = words[0];
-        words[0] = temp.slice(0, -1);
-        if (split) words[1] = `${temp.slice(-1)}${words[1]}`;
-        else {
-          split = true;
-          words.splice(1, 0, temp.slice(-1));
-        }
-      }
-      if (ctx.measureText(`${line}${words[0]}`).width < maxWidth)
-        line += `${words.shift()} `;
-      else {
-        lines.push(line.trim());
-        line = "";
-      }
-      if (words.length === 0) lines.push(line.trim());
-    }
-    return resolve(lines);
-  });
+  credits: "SHANKAR SUMAN",
+  description: "GIRL STATUS VEDIO",
+  usePrefix: false,
+  commandCategory: "GIRL STATUS VIDEO",
+  usages: "Status video",
+  cooldowns: 5,
+  dependencies: {
+    "request":"",
+    "fs-extra":"",
+    "axios":""
+  }
 };
 
-module.exports.run = async function ({ api, event, args, Users }) {
-  let { senderID, threadID, messageID } = event;
-  const { loadImage, createCanvas } = require("canvas");
-  const Canvas = global.nodemodule["canvas"];
-  const request = require('request');
-  const fs = global.nodemodule["fs-extra"];
-  const axios = global.nodemodule["axios"];
-  let pathImg = __dirname + `/cache/anhdaden.png`;
-  const text = args.join(" ").trim().replace(/\s+/g, " ").replace(/(\s+\|)/g, "|").replace(/\|\s+/g, "|").split("|");
-  let getImage = (
-    await axios.get(encodeURI(`https://i.imgur.com/2ggq8wM.png`), {
-      responseType: "arraybuffer",
-    })
-  ).data;
-  fs.writeFileSync(pathImg, Buffer.from(getImage, "utf-8"));
-if(!fs.existsSync(__dirname+'/cache/SVN-Arial 2.ttf')) { 
-      let getfont = (await axios.get(`https://drive.google.com/u/0/uc?id=11YxymRp0y3Jle5cFBmLzwU89XNqHIZux&export=download`, { responseType: "arraybuffer" })).data;
-       fs.writeFileSync(__dirname+"/cache/SVN-Arial 2.ttf", Buffer.from(getfont, "utf-8"));
-    };
-  let baseImage = await loadImage(pathImg);
-  let canvas = createCanvas(baseImage.width, baseImage.height);
-  let ctx = canvas.getContext("2d");
-  ctx.drawImage(baseImage, 0, 0, canvas.width, canvas.height);
-  Canvas.registerFont(__dirname+`/cache/SVN-Arial 2.ttf`, {
-        family: "SVN-Arial 2"
-    });
-  ctx.font = "30px SVN-Arial 2";
-  ctx.fillStyle = "#000077";
-  ctx.textAlign = "center";
-  const line = await this.wrapText(ctx, text[0], 464);
-  const lines = await this.wrapText(ctx, text[1], 464);
-  ctx.fillText(line.join("\n"), 170, 129)
-  ctx.fillText(lines.join("\n"), 170, 440)
-  ctx.beginPath();
-  const imageBuffer = canvas.toBuffer();
-  fs.writeFileSync(pathImg, imageBuffer);
-  return api.sendMessage(
-    { attachment: fs.createReadStream(pathImg) },
-    threadID,
-    () => fs.unlinkSync(pathImg),
-    messageID
-  );
-};
+module.exports.run = async({api,event,args,client,Users,Threads,__GLOBAL,Currencies}) => {
+const axios = global.nodemodule["axios"];
+const request = global.nodemodule["request"];
+const fs = global.nodemodule["fs-extra"];
+   var hi = ["-Dani _Malik-"];
+  var know = hi[Math.floor(Math.random() * hi.length)];
+  var link = [
+
+  "https://docs.google.com/uc?export=download&id=1DawiOQUSBckYP4kcWj6QPBSPz94BWIUJ","https://docs.google.com/uc?export=download&id=1Gc_OnYGPPSgaE6kPI7RPHRhWPwe9MBdN","https://docs.google.com/uc?export=download&id=1GUxLPXj9kAdL7F1MxHsFJZMBttqpDOb4","https://docs.google.com/uc?export=download&id=1DeBik55mWBCHpJKgrBT0xNStxPVachgW","https://docs.google.com/uc?export=download&id=1Ghnx7nMCplG4d8I_xSWWe6BZSAFgRspj","https://docs.google.com/uc?export=download&id=1GUQJZYCYQmpYl83o0CcOxnsoC9C0kvjK","https://docs.google.com/uc?export=download&id=1Hpu3XWiZwpByelw88ef-wAioQjNS6Koa","https://docs.google.com/uc?export=download&id=1HelQwAtAyOG9mLnoZT6o6lyXTGF8g9Hc","https://docs.google.com/uc?export=download&id=1HLXduymqePP7vbHVNe-hR2V_XQigChiZ","https://docs.google.com/uc?export=download&id=1HFUhx_Dd39U-9AmjCNky20cfl5muN301","https://docs.google.com/uc?export=download&id=1HEoCHXnnnDBxwY0LHi2WPe_QXkasVmOq","https://docs.google.com/uc?export=download&id=1H7QofEMsDnsMvZe0PEyXrjwfg7PAR1vb","https://docs.google.com/uc?export=download&id=1H389OrKf0dboIfTobyALuueGTTnVDinE","https://docs.google.com/uc?export=download&id=1J4SYoF0VZAof_d5TzcXjgYCw_V6HXFFi","https://docs.google.com/uc?export=download&id=1J3cs7GtAaF_BpKePvkl7pFHJQ4orYVRJ","https://docs.google.com/uc?export=download&id=1J0K8-lKfqWMr0ACvYNdX5SWGrpSRt3BT","https://docs.google.com/uc?export=download&id=1IumFe6sshNrYWfcoJk6qNMEdju-gu7am","https://docs.google.com/uc?export=download&id=1IpsM14OqAQ2SSyARfGjqlAWetzCunKiC","https://docs.google.com/uc?export=download&id=1ImY9Z3pBnXSFHzHfHfXJ8Aismr36glbj","https://docs.google.com/uc?export=download&id=1Ijcki7IG6SRHxiso-kM7cOTHZhlEJmlp","https://docs.google.com/uc?export=download&id=1Ib19ibDGpRa_KpTdE5tsZPCMNji9XP2u","https://docs.google.com/uc?export=download&id=1IaeDKKa9CjqvVWoxPJebTSk1bzaV8Is9","https://docs.google.com/uc?export=download&id=1IZ7Yu-TsNumb27SUhkdZecYm27gfBAa2","https://docs.google.com/uc?export=download&id=1J9alVPXRz5VstiunCjPTrCFP5d4B4XrE","https://docs.google.com/uc?export=download&id=1J7Mv7v3izDNwL8BaInpLEvUPrTMVQyNw"
+];
+     var callback = () => api.sendMessage({body:`「 ${know} 」`,attachment: fs.createReadStream(__dirname + "/cache/15.mp4")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/15.mp4"));    
+      return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/15.mp4")).on("close",() => callback());
+   };
