@@ -64,7 +64,7 @@ if (args[0] == "all") {
      var obj = Object.keys(data);
     var firstname = data[obj].name.replace("@", "");
     let callback = function () {
-        api.sendMessage({ body:`𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗟𝗶𝘀𝘁\n\n` + msg + `\nSpamming the bot are strictly prohibited\n\nTotal Commands: ${commands.size}\n\nFor All Cmds Type help2\n\nDeveloper:\n𝙺𝙸𝙽𝙶 𝚂𝙷𝙰𝙰𝙽`, mentions: [{
+        api.sendMessage({ body:`𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗟𝗶𝘀𝘁\n\n` + msg + `\nSpamming the bot are strictly prohibited\n\nTotal Commands: ${commands.size}\n\nFor All Cmds Type help2\n\nDeveloper:\n𝙺𝙸𝙽𝙶 Dani`, mentions: [{
                            tag: firstname,
                            id: admID,
                            fromIndex: 0,
@@ -107,10 +107,10 @@ const first = numberOfOnePage * page - numberOfOnePage;
 
     const siu = `★𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗟𝗶𝘀𝘁★`;
 
- const text = `\n𝐏𝐀𝐆𝐄 (${page}/${Math.ceil(arrayInfo.length/numberOfOnePage)})\nFor All Cmds Type Help2\n\n𝗠𝗮𝗱𝗲 𝗕𝘆: 𝚂𝙷𝙰𝙰𝙽 𝙿𝙰𝚃𝙷𝙰𝙽\n\n★᭄𝗖𝗿𝗲𝗱𝗶𝘁'𝘀  ཫ    ★𝐒𝐇𝐀𝐀𝐍 𝐊𝐇𝐀𝐍★`;
+ const text = `\n𝐏𝐀𝐆𝐄 (${page}/${Math.ceil(arrayInfo.length/numberOfOnePage)})\nFor All Cmds Type Help2\n\n𝗠𝗮𝗱𝗲 𝗕𝘆: 𝐃𝐀𝐍𝐈 𝐌𝐀𝐋𝐈𝐊\n\n★᭄𝗖𝗿𝗲𝗱𝗶𝘁'𝘀  ཫ    ★𝐃𝐀𝐍𝐈 𝐌𝐀𝐋𝐈𝐊★`;
     var link = [
-"https://i.imgur.com/WW1nVy9.jpeg", 
-"https://i.imgur.com/WW1nVy9.jpeg"
+"https://i.imgur.com/1jYICQK.jpeg", 
+"https://i.imgur.com/kfcN3nu.jpeg"
       ]
      var callback = () => api.sendMessage({ body: siu + "\n\n" + msg  + text, attachment: fs.createReadStream(__dirname + "/cache/leiamnashelp.jpg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/leiamnashelp.jpg"), event.messageID);
     return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname + "/cache/leiamnashelp.jpg")).on("close", () => callback());
