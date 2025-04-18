@@ -14,7 +14,7 @@ module. exports. handleEvent = async function({ api, event, args, Users,Threads 
   console.log(timeNow)
   var seconds = moment.tz("Asia/Manila").format("ss");
   var timeRestart_1 = `12:00:${seconds}`𝐒𝐨 𝐣𝐚 𝐛𝐚𝐡𝐨𝐭 𝐫𝐚𝐭 𝐡𝐨𝐠𝐢 𝐡𝐚𝐢
-  var timeRestart_2 = `11:00:${seconds}`𝐒𝐡𝐚𝐚𝐧 𝐛𝐚𝐛𝐲 𝐊𝐡𝐚𝐧𝐚 𝐤𝐡𝐚𝐲𝐚🥀
+  var timeRestart_2 = `11:00:${seconds}`𝐃𝐀𝐍𝐈 𝐛𝐚𝐛𝐲 𝐊𝐡𝐚𝐧𝐚 𝐤𝐡𝐚𝐲𝐚🥀
   var timeRestart_3 = `10:00:${seconds}`𝐊𝐲𝐚 𝐛𝐡𝐚𝐢 𝐲𝐞 𝐤𝐨𝐢 𝐭𝐢𝐦𝐞 𝐡𝐚𝐢 𝐠𝐡𝐫 𝐚𝐚𝐧𝐞 𝐤𝐢
   var timeRestart_4 = `09:00:${seconds}`𝐓𝐯 𝐨𝐧 𝐤𝐚𝐫𝐨 𝐦𝐞𝐫𝐞 𝐥𝐢𝐞 𝐤𝐨𝐢😁
   var timeRestart_5 = `08:00:${seconds}`𝐊𝐡𝐮𝐬𝐡 𝐫𝐞𝐡 𝐤𝐞 𝐥𝐢𝐞 𝐤𝐡𝐚𝐬𝐚 𝐡𝐨𝐭𝐚 𝐤𝐡𝐚𝐬𝐨🤪
