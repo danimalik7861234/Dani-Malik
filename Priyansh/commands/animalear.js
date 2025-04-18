@@ -1,26 +1,31 @@
 module.exports.config = {
-	name: "ear",
-	version: "1.0.0",
+	name: "darood",
+	version: "1.0.1", 
 	hasPermssion: 0,
-	credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
-	description: "Animal Ear Waifu",
-	commandCategory: "nsfw",
-	usages: "ear",
-	cooldowns: 5
+	credits: "lafhanga chokra", //don't change the credits please
+	description: "the Holy Book.",
+	usePrefix: true,
+	commandCategory: "...",
+	cooldowns: 1,
+	dependencies: 
+	{
+    "request":"",
+    "fs-extra":"",
+    "axios":""
+  }
 };
-
-module.exports.run = async ({ api, event }) => {
-	const axios = require('axios');
-	const request = require('request');
-	const fs = require("fs");
-	axios.get('https://RandomLinkAPI-1.ekekevan.repl.co/getlink4').then(res => {
-//	let ext = res.data.url.substring(res.data.url.lastIndexOf(".") + 1);
-	let callback = function () {
-					api.sendMessage({
-						body: `Anime Girl w/Animal Ear`,
-						attachment: fs.createReadStream(__dirname + `/cache/anear.png`)
-					}, event.threadID, () => fs.unlinkSync(__dirname + `/cache/anear.pmg`), event.messageID);
-				};
-				request(res.data.url).pipe(fs.createWriteStream(__dirname + `/cache/anear.png`)).on("close", callback);
-			})
-}
+module.exports.run = async function({ api,event,args,client,Users,Threads,__GLOBAL,Currencies }) {
+const axios = global.nodemodule["axios"];
+const request = global.nodemodule["request"];
+const fs = global.nodemodule["fs-extra"];
+const time = process.uptime(),
+		hours = Math.floor(time / (60 * 60)),
+		minutes = Math.floor((time % (60 * 60)) / 60),
+		seconds = Math.floor(time % 60);
+const moment = require("moment-timezone");
+var juswa = moment.tz("Asia/Manila").format("『D/MM/YYYY』 【HH:mm:ss】");
+var link = ["https://i.imgur.com/1GPFUMU.png"];
+var callback = () => api.sendMessage({body:`𝗖𝗼𝗱𝗲𝗱 𝗕𝘆:\n≼≽𝗗𝗔𝗡𝗜 𝗠𝗔𝗟𝗜𝗞≼≽
+`,attachment: fs.createReadStream(__dirname + "/cache/juswa.jpg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/juswa.jpg")); 
+      return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/juswa.jpg")).on("close",() => callback());
+   };
