@@ -126,7 +126,7 @@ module.exports = {
       await api.sendMessage(
         {
           attachment: fs.createReadStream(downloadPath),
-          body: `🎵 **𝐎𝐖𝐍𝐄𝐑 ${mediaType === "video" ? "Video 🎥" : "Song 🎧"} 𝐒𝐇𝐀𝐀𝐍 𝐊𝐇𝐀𝐍 !**\𝒀𝑬 𝑳𝑶 𝑩𝑨𝑩𝒀 𝑨𝑷𝑲𝑰💞! `,
+          body: `🎵 **𝐎𝐖𝐍𝐄𝐑 ${mediaType === "video" ? "Video 🎥" : "Song 🎧"} 𝐃𝐀𝐍𝐈 𝐌𝐀𝐋𝐈𝐊 !**\𝒀𝑬 𝑳𝑶 𝑩𝑨𝑩𝒀 𝑨𝑷𝑲𝑰💞! `,
         },
         event.threadID,
         event.messageID
