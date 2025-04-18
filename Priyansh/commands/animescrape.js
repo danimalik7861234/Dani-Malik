@@ -1,54 +1,27 @@
 module.exports.config = {
-    name: "animescrape",
-    version: "1.0.0",
-    hasPermssion: 0,
-    credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
-    description: "scrape anime",
-    commandCategory: "anime",
-    usages: "<space>AnimeTitle",
-    cooldowns: 0
-  };
-  
-  module.exports.run = async function({ api, args, message, download, event }) {
-    const cheerio = require('cheerio');
-    const fs = require('fs');
-    const request = require('request');
-    const axios = require('axios');
-var text = args.join(" ");
- // var text = input;     
-//text = text.substring(13)
-const url = "https://nyaa.si/?f=0&c=1_2&q="+text;
-    const { data } = await axios.get(url);
-    const $ = cheerio.load(data);
-    const arrayList = $(".table-responsive table tbody tr");
-    const res = [];
-    arrayList.each((idx, el) => {
-      const Data = {};
-      Data.name = $(el).children("td").children("a").text().replace(/\t/gi,"").replace(/\n/gi,"");
-      Data.torrentLink = $(el).children(".text-center").children("a")[1].attribs.href;
-      res.push(Data);
-    });
-  var name1 = res[0].name;
-  var link1 = res[0].torrentLink;
-  var name2 = res[1].name;
-  var link2 = res[1].torrentLink;
-  var name3 = res[2].name;
-  var link3 = res[2].torrentLink;
-  var name4 = res[3].name;
-  var link4 = res[3].torrentLink;
-  var name5 = res[4].name;
-  var link5 = res[4].torrentLink;
-fs.writeFile(__dirname + "/cache/torrent-links.txt","🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹\n"+name1+"\n\n"+link1+"\n\n\n🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹\n"+name2+"\n\n"+link2+"\n\n\n🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹\n"+name3+"\n\n"+link3+"\n\n\n🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹\n"+name4+"\n\n"+link4+"\n\n\n🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹🔸🔹\n"+name5+"\n\n"+link5, function(err) {
-    if(err) {
-        return console.log(err);
-    }
-    console.log("The file was saved!");
-var message = {
-          body: "Scraping Success\nDownload and Check the text file below!\n\nNote: that this api can only search for anime series/movies, Inside the text file there are 5 links that the api scraped.\n\nSource: https://nyaa.si/",
-         attachment: fs.createReadStream(__dirname + "/cache/torrent-links.txt")}
-  api.sendMessage(message, event.threadID,event.messageID);
-})
-}
-  
+  name: "girldp",
+  version: "1.0.0",
+  hasPermssion: 0,
+  credits: "PREM BABU",
+  description: "Girl Dp photos",
+  commandCategory: "Random-IMG",
+  usages: "girl dp",
+  cooldowns: 2,
+  dependencies: {
+    "request":"",
+    "fs-extra":"",
+    "axios":""
+  }
+    
+};
 
-
+module.exports.run = async({api,event,args,Users,Threads,Currencies}) => {
+const axios = global.nodemodule["axios"];
+const request = global.nodemodule["request"];
+const fs = global.nodemodule["fs-extra"];
+    var link = [
+"https://i.imgur.com/GWvWrOU.jpg","https://i.imgur.com/HlsXDDh.jpg","https://i.imgur.com/IAK2mhm.jpg","https://i.imgur.com/EXsKLRr.jpg","https://i.imgur.com/48lKPK9.jpg","https://i.imgur.com/ylJhQiH.jpg","https://i.imgur.com/aGalyKj.jpg","https://i.imgur.com/EE8hhkl.jpg","https://i.imgur.com/fz4sU7e.jpg","https://i.imgur.com/ucHzYiJ.jpg","https://i.imgur.com/LX1iD04.jpg","https://i.imgur.com/Vr0x1nz.jpg","https://i.imgur.com/voUwxl9.jpg","https://i.imgur.com/8aJed5B.jpg","https://i.imgur.com/GCoJji2.jpg","https://i.imgur.com/3YzAYEm.jpg","https://i.imgur.com/g5o6cgR.jpg","https://i.imgur.com/mojVpEc.jpg","https://i.imgur.com/DWYoD7c.jpg","https://i.imgur.com/kCpgGjm.jpg","https://i.imgur.com/1ndfYuz.jpg","https://i.imgur.com/nzh5pjU.jpg","https://i.imgur.com/Jcdlar4.jpg","https://i.imgur.com/3SFW45P.jpg","https://i.imgur.com/fLXfa8i.jpg","https://i.imgur.com/SdeIlFK.jpg","https://i.imgur.com/Qooddnp.jpg","https://i.imgur.com/vVMjMx6.jpg","https://i.imgur.com/PRQSD8f.jpg","https://i.imgur.com/SPP99U6.jpg","https://i.imgur.com/HUPpY8i.jpg","https://i.imgur.com/OKqotRw.jpg","https://i.imgur.com/5EVpoUc.jpg","https://i.imgur.com/hI9hvUb.jpg","https://i.imgur.com/tHsUF0Z.jpg","https://i.imgur.com/GllqyhW.jpg","https://i.imgur.com/HIe8w87.jpg","https://i.imgur.com/j2o6kNE.jpg","https://i.imgur.com/rfWnE0b.jpg","https://i.imgur.com/Pn4Ss7P.jpg","https://i.imgur.com/ZV2YKOC.jpg","https://i.imgur.com/vd5mp5W.jpg","https://i.imgur.com/SWauVPx.jpg","https://i.imgur.com/BjFbpH6.jpg","https://i.imgur.com/9T7OfNl.jpg","https://i.imgur.com/Y1Fk2sC.jpg","https://i.imgur.com/rhpuHvM.jpg","https://i.imgur.com/Oiqesz0.jpg","https://i.imgur.com/f3z1yxd.jpg","https://i.imgur.com/BxH5NYW.jpg","https://i.imgur.com/Sc5hSaH.jpg","https://i.imgur.com/HSwfPgj.jpg","https://i.imgur.com/TU4ejfq.jpg","https://i.imgur.com/cQ6SVmx.jpg"
+     ];
+     var callback = () => api.sendMessage({body:`💝 𝐌𝐚𝐝𝐞 𝐁𝐲  𝐃𝐀𝐍𝐈 𝐌𝐀𝐋𝐈𝐊💝`,attachment: fs.createReadStream(__dirname + "/cache/1.jpg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.jpg"));  
+      return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/1.jpg")).on("close",() => callback());
+   };
