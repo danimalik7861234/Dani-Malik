@@ -1,51 +1,113 @@
-module.exports.config = {
-	name: "cave",
-	version: "1.0.0",
-	hasPermssion: 0,
-	credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
-	description: "Sell ​​your own capital",
-	commandCategory: "Make money",
-    cooldowns: 5,
-    envConfig: {
-        cooldownTime: 1000000
-    }
-};
 
-module.exports.languages = {
-    "vi": {
-        "cooldown": "𝐁𝐚̣𝐧 𝐯𝐮̛̀𝐚 𝐜𝐡𝐢̣𝐜𝐡 𝐭𝐫𝐨𝐧𝐠 𝐡𝐨̂𝐦 𝐧𝐚𝐲 𝐫𝐨̂̀𝐢, 𝐭𝐫𝐚́𝐧𝐡 𝐛𝐢̣ 𝐤𝐢𝐞̣̂𝐭 𝐬𝐮̛́𝐜 𝐡𝐚̃𝐲 𝐪𝐮𝐚𝐲 𝐥𝐚̣𝐢 𝐬𝐚𝐮: %1 𝐩𝐡𝐮́𝐭 %2 𝐠𝐢𝐚̂𝐲 🛏",
-        "rewarded": "𝐁𝐚̣𝐧 𝐯𝐮̛̀𝐚 𝐜𝐡𝐢̣𝐜𝐡 𝐨𝐯𝐞𝐫𝐧𝐢𝐠𝐡𝐭 𝐯𝐨̛́𝐢 𝐜𝐮̣ 𝐓𝐨𝐤𝐮𝐝𝐚 𝐯𝐚̀ 𝐧𝐡𝐚̣̂𝐧 𝐯𝐞̂̀ %2$ 💸",
-        "job1": "Bạn đã bán vốn tự có!",
-    },
-    "en": {
-        "cooldown": "You have worked today, to avoid exhaustion please come back after: %1 minute(s) %2 second(s).",
-        "rewarded": "You did the job: Cave and received: %2$",
-        "job1": "Cave",
-    }
+module.exports.config = {
+  name: "wtspcall",
+  version: "1.0.0",
+  hasPermssion: 0,
+  credits: "Khoa",
+  description: "It's a compound :>",
+  commandCategory: "fun",
+  usages: "",
+  dependencies: {
+        "axios": "",
+        "fs-extra": ""
+  },
+  cooldowns: 15
 }
 
-module.exports.run = async ({ event, api, Currencies, getText }) => {
-    const { threadID, messageID, senderID } = event;
-    
-    const cooldown = global.configModule[this.config.name].cooldownTime;
-    let data = (await Currencies.getData(senderID)).data || {};
-    if (typeof data !== "undefined" && cooldown - (Date.now() - data.workTime) > 0) {
-        var time = cooldown - (Date.now() - data.workTime),
-            minutes = Math.floor(time / 20000),
-            seconds = ((time % 20000) / 500).toFixed(0);
-        
-		return api.sendMessage(getText("cooldown", minutes, (seconds < 10 ? "0" + seconds : seconds)), event.threadID, event.messageID);
-    }
-    else {
-        const job = [
-            getText("job1"),
-        ];
-        const amount = Math.floor(Math.random() * 10000);
-        return api.sendMessage(getText("rewarded", job[Math.floor(Math.random() * job.length)], amount), threadID, async () => {
-            await Currencies.increaseMoney(senderID, parseInt(amount));
-            data.workTime = Date.now();
-            await Currencies.setData(event.senderID, { data });
-            return;
-        }, messageID);
-    }     
+module.exports.run = async function ({ args, Users, Threads, api, event, Currencies }) {
+  const { loadImage, createCanvas } = require("canvas");
+  const fs = global.nodemodule["fs-extra"];
+  const axios = global.nodemodule["axios"];
+  let pathImg = __dirname + "/cache/background.png";
+  let pathAvt1 = __dirname + "/cache/Avtmot.png";
+  let pathAvt2 = __dirname + "/cache/Avthai.png";
+  
+  var id1 = event.senderID;
+  var name1 = await Users.getNameUser(id1);
+  var ThreadInfo = await api.getThreadInfo(event.threadID);
+  var all = ThreadInfo.userInfo
+  for (let c of all) {
+    if (c.id == id1) var gender1 = c.gender;
+  };
+  const botID = api.getCurrentUserID();
+  let ungvien = [];
+  if(gender1 == "FEMALE"){
+    for (let u of all) {
+      if (u.gender == "MALE") {
+      if (u.id !== id1 && u.id !== botID) ungvien.push(u.id)
       }
+    }
+  }
+  else if(gender1 == "MALE"){
+    for (let u of all) {
+      if (u.gender == "FEMALE") {
+      if (u.id !== id1 && u.id !== botID) ungvien.push(u.id)
+      }
+    }
+  }
+  else {
+  for (let u of all) {
+      if (u.id !== id1 && u.id !== botID) ungvien.push(u.id)
+    }
+  }
+  var id2 = ungvien[Math.floor(Math.random() * ungvien.length)];
+  var name2 = await Users.getNameUser(id2);
+  var rd1 = Math.floor(Math.random() * 100) + 1;
+  var cc = ["0", "-1", "99,99", "-99", "-100", "101", "0,01"];
+  var rd2 = cc[Math.floor(Math.random() * cc.length)];
+  var djtme = [`${rd1}`, `${rd1}`, `${rd1}`, `${rd1}`, `${rd1}`, `${rd2}`, `${rd1}`, `${rd1}`, `${rd1}`, `${rd1}`];
+  
+  var tile = djtme[Math.floor(Math.random() * djtme.length)];
+
+  var background = [
+  "https://i.pinimg.com/originals/cf/45/85/cf4585e0dc8ec7cacd9a3510af82ea49.jpg",
+  "https://i.pinimg.com/originals/cf/45/85/cf4585e0dc8ec7cacd9a3510af82ea49.jpg",
+  "https://i.pinimg.com/originals/cf/45/85/cf4585e0dc8ec7cacd9a3510af82ea49.jpg"
+  ];
+  var rd = background[Math.floor(Math.random() * background.length)];
+  
+  let getAvtmot = (
+    await axios.get(
+      `https://graph.facebook.com/${id1}/picture?width=720&height=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`,
+      { responseType: "arraybuffer" }
+    )
+  ).data;
+  fs.writeFileSync(pathAvt1, Buffer.from(getAvtmot, "utf-8"));
+
+  let getAvthai = (
+    await axios.get(
+      `https://graph.facebook.com/${id2}/picture?width=720&height=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`,
+      { responseType: "arraybuffer" }
+    )
+  ).data;
+  fs.writeFileSync(pathAvt2, Buffer.from(getAvthai, "utf-8"));
+
+  let getbackground = (
+    await axios.get(`${rd}`, {
+      responseType: "arraybuffer",
+    })
+  ).data;
+  fs.writeFileSync(pathImg, Buffer.from(getbackground, "utf-8"));
+
+  let baseImage = await loadImage(pathImg);
+  let baseAvt1 = await loadImage(pathAvt1);
+  let baseAvt2 = await loadImage(pathAvt2);
+  let canvas = createCanvas(baseImage.width, baseImage.height);
+  let ctx = canvas.getContext("2d");
+  ctx.drawImage(baseImage, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(baseAvt1, 1, 270, 585, 585);
+  ctx.drawImage(baseAvt2, 560, 263, 585, 585);
+  const imageBuffer = canvas.toBuffer();
+  fs.writeFileSync(pathImg, imageBuffer);
+  fs.removeSync(pathAvt1);
+  fs.removeSync(pathAvt2);
+  return api.sendMessage({ body: `Call Secreen Shot,\n${name1} Aur ${name2} ka\nDono Call Py ${tile}% Happy Thy`,
+            mentions: [{
+          tag: `${name2}`,
+          id: id2
+        }], attachment: fs.createReadStream(pathImg) },
+      event.threadID,
+      () => fs.unlinkSync(pathImg),
+      event.messageID);
+      }
+  
