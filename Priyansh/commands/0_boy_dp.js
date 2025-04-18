@@ -1,29 +1,74 @@
 module.exports.config = {
-  name: "boydp",
-  version: "1.0.0",
+  name: "bf",
+  version: "7.3.1",
   hasPermssion: 0,
-  credits: "PREM BABU",
-  description: "Boys Dp photos",
-  commandCategory: "Random-IMG",
-  usages: "Boy dp",
-  cooldowns: 2,
+  credits: " Priyansh Rajput", 
+  description: "Get Pair From Mention",
+  commandCategory: "img",
+  usages: "[@mention]",
+  cooldowns: 5, 
   dependencies: {
-    "request":"",
-    "fs-extra":"",
-    "axios":""
+      "axios": "",
+      "fs-extra": "",
+      "path": "",
+      "jimp": ""
   }
-
 };
 
-module.exports.run = async({api,event,args,Users,Threads,Currencies}) => {
-const axios = global.nodemodule["axios"];
-const request = global.nodemodule["request"];
-const fs = global.nodemodule["fs-extra"];
-    var link = [
-"https://i.imgur.com/h9kE3Ic.jpeg","https://i.imgur.com/nNJr9Dt.jpeg","https://i.imgur.com/wFSzYnF.jpeg","https://i.imgur.com/zJ1HFs8.jpeg","https://i.imgur.com/wsv4mWY.jpeg","https://i.imgur.com/r3UTDwz.jpeg","https://i.imgur.com/ZCYaMfF.jpeg","https://i.imgur.com/hSQWcAM.jpeg","https://i.imgur.com/ovX6lfA.jpeg","https://i.imgur.com/RgfrYpM.jpeg","https://i.imgur.com/DfvFLov.jpeg","https://i.imgur.com/GPwbrDj.jpeg","https://i.imgur.com/jSifYwo.jpeg","https://i.imgur.com/Chc5pLl.jpeg","https://i.imgur.com/HbznJXK.jpeg","https://i.imgur.com/OLKdt61.jpeg","https://i.imgur.com/tDNqmML.jpeg","https://i.imgur.com/yUwx4o4.jpeg","https://i.imgur.com/e4xWHUv.jpeg","https://i.imgur.com/q6LfLx0.jpeg","https://i.imgur.com/eoKKdzI.jpeg","https://i.imgur.com/n3DS2ha.jpeg","https://i.imgur.com/E5QWGCE.jpeg","https://i.imgur.com/44YNGf6.jpeg","https://i.imgur.com/fh8i2Ph.jpeg","https://i.imgur.com/EMazlEj.jpeg","https://i.imgur.com/Uz4RQSg.jpeg","https://i.imgur.com/INxT1BF.jpeg","https://i.imgur.com/jnU2FrO.jpeg","https://i.imgur.com/qFDKN6v.jpeg","https://i.imgur.com/m84lelb.jpeg","https://i.imgur.com/FmMsaOR.jpeg","https://i.imgur.com/Ln7It9C.jpeg","https://i.imgur.com/SZ9KznS.jpeg","https://i.imgur.com/WypMeee.jpeg","https://i.imgur.com/Zq9sgX0.jpeg","https://i.imgur.com/kIvSt9A.jpeg","https://i.imgur.com/g3R1fQh.jpeg","https://i.imgur.com/jv1LGtq.jpeg","https://i.imgur.com/lKkm83o.jpeg","https://i.imgur.com/Yuai95W.jpeg","https://i.imgur.com/FNWIrNo.jpeg","https://i.imgur.com/YUOScB2.jpeg","https://i.imgur.com/Gd8K8Cg.jpeg","https://i.imgur.com/R0mvOeZ.jpeg","https://i.imgur.com/GGLiv35.jpeg","https://i.imgur.com/b4hHhSk.jpeg","https://i.imgur.com/45QWr06.jpeg","https://i.imgur.com/uz7bh1h.jpeg","https://i.imgur.com/7blSNAk.jpeg","https://i.imgur.com/r11VKsm.jpeg","https://i.imgur.com/4NyGJmu.jpeg","https://i.imgur.com/HMMe7fV.jpeg","https://i.imgur.com/447Dsfb.jpeg","https://i.imgur.com/BsfPGOF.jpeg","https://i.imgur.com/h0C5puK.jpeg","https://i.imgur.com/qpgBE0X.jpeg","https://i.imgur.com/f0HFaCv.jpeg","https://i.imgur.com/a4vo9Cv.jpeg","https://i.imgur.com/J7PAAuR.jpeg","https://i.imgur.com/OG7CCAz.jpeg","https://i.imgur.com/tqnzYDJ.jpeg","https://i.imgur.com/3ItPOnW.jpeg","https://i.imgur.com/yCkue9w.jpeg","https://i.imgur.com/jx6VfM6.jpeg"
-     ];
-     var callback = () => api.sendMessage({body:`🌸===『*★𝗖𝗿𝗲𝗱𝗶𝘁'𝘀 𒁍╔╬⓼★⓼╃───────➣™
-𝐃𝐀𝐍𝐈 𝐌𝐀𝐋𝐈𝐊 𝄠━─━Ⓔ⧐
-╰✾✾®️╀✿✿╀─━ↈⓇ⧐`,attachment: fs.createReadStream(__dirname + "/cache/1.jpg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.jpg"));  
-      return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/1.jpg")).on("close",() => callback());
-   };
+module.exports.onLoad = async() => {
+  const { resolve } = global.nodemodule["path"];
+  const { existsSync, mkdirSync } = global.nodemodule["fs-extra"];
+  const { downloadFile } = global.utils;
+  const dirMaterial = __dirname + `/cache/canvas/`;
+  const path = resolve(__dirname, 'cache/canvas', 'arr2.png');
+  if (!existsSync(dirMaterial + "canvas")) mkdirSync(dirMaterial, { recursive: true });
+  if (!existsSync(path)) await downloadFile("https://i.imgur.com/iaOiAXe.jpeg", path); 
+}
+
+async function makeImage({ one, two }) {
+  const fs = global.nodemodule["fs-extra"];
+  const path = global.nodemodule["path"];
+  const axios = global.nodemodule["axios"]; 
+  const jimp = global.nodemodule["jimp"];
+  const __root = path.resolve(__dirname, "cache", "canvas");
+
+  let batgiam_img = await jimp.read(__root + "/arr2.png");
+  let pathImg = __root + `/batman${one}_${two}.png`;
+  let avatarOne = __root + `/avt_${one}.png`;
+  let avatarTwo = __root + `/avt_${two}.png`;
+
+  let getAvatarOne = (await axios.get(`https://graph.facebook.com/${one}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`, { responseType: 'arraybuffer' })).data;
+  fs.writeFileSync(avatarOne, Buffer.from(getAvatarOne, 'utf-8'));
+
+  let getAvatarTwo = (await axios.get(`https://graph.facebook.com/${two}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`, { responseType: 'arraybuffer' })).data;
+  fs.writeFileSync(avatarTwo, Buffer.from(getAvatarTwo, 'utf-8'));
+
+  let circleOne = await jimp.read(await circle(avatarOne));
+  let circleTwo = await jimp.read(await circle(avatarTwo));
+  batgiam_img.composite(circleOne.resize(200, 200), 70, 110).composite(circleTwo.resize(200, 200), 465, 110);
+
+  let raw = await batgiam_img.getBufferAsync("image/png");
+
+  fs.writeFileSync(pathImg, raw);
+  fs.unlinkSync(avatarOne);
+  fs.unlinkSync(avatarTwo);
+
+  return pathImg;
+}
+async function circle(image) {
+  const jimp = require("jimp");
+  image = await jimp.read(image);
+  image.circle();
+  return await image.getBufferAsync("image/png");
+}
+
+module.exports.run = async function ({ event, api, args }) {    
+  const fs = global.nodemodule["fs-extra"];
+  const { threadID, messageID, senderID } = event;
+  const mention = Object.keys(event.mentions);
+  if (!mention[0]) return api.sendMessage("Please mention 1 person.", threadID, messageID);
+  else {
+      const one = senderID, two = mention[0];
+      return makeImage({ one, two }).then(path => api.sendMessage({ body: "𝐌𝐚𝐝𝐞 𝐁𝐲:-☞♨𝐃𝐀𝐍𝐈✫𝐌𝐀𝐋𝐈𝐊៚☜ ╔═══❖••° °••❖═══╗\n\n   𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥 𝐏𝐚𝐢𝐫𝐢𝐧𝐠\n\n╚═══❖••° °••❖═══╝\n\n   ✶⊶⊷⊷❍⊶⊷⊷✶\n\n       👑 𝐌𝐢𝐥𝐥 𝐆𝐚𝐲𝐚 ❤\n\n𝐓𝐞𝐫𝐚 𝐁𝐨𝐲𝐟𝐫𝐢𝐞𝐧𝐝 🩷\n\n   ✶⊶⊷⊷❍⊶⊷⊷✶                    ─━━◉❖𝐈 𝐋𝐎𝐕𝐄 𝐘𝐎𝐔🤗❖◉━━─           ❥═≛𝐒𝐎 𝐌𝐔𝐂𝐇 💝≛═❥                ─━━◉❖𝐌𝐘 𝐉𝐀𝐀𝐍🙈❖◉━━─\nỖ𝐖ηᗴ𝐑◉❖♨𝐃𝐀𝐍𝐈✫𝐌𝐀𝐋𝐈𝐊៚❖◉", attachment: fs.createReadStream(path) }, threadID, () => fs.unlinkSync(path), messageID));
+  }
+}
