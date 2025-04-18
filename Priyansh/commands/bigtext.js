@@ -1,219 +1,74 @@
 module.exports.config = {
-    name: "bigtext",
-    version: "1.0.0",
+    name: "wife",
+    version: "7.3.1",
     hasPermssion: 0,
-    credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
-    description: "big text",
-    commandCategory: "game",
-    usages: "bigtext <text>",
-    cooldowns: 5
+    credits: " AZIZ",///don't change my Credit Coz i Edit 
+    description: "Get Pair From Mention",
+    commandCategory: "img",
+    usages: "[@mention]",
+    cooldowns: 5,
+    dependencies: {
+        "axios": "",
+        "fs-extra": "",
+        "path": "",
+        "jimp": ""
+    }
 };
 
-module.exports.run = async ({ event, api, args }) => {
-   var text = args.join("").toLowerCase();
-       text = text.toLowerCase();
-  text = text.replace(/\./g, `
-░░░
-░░░
-░░░
-░░░
-██╗
-╚═╝`)
-  .replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|a/g, `
-░█████╗░
-██╔══██╗
-███████║
-██╔══██║
-██║░░██║
-╚═╝░░╚═╝`)
-  .replace(/b/g, `
-██████╗░
-██╔══██╗
-██████╦╝
-██╔══██╗
-██████╦╝
-╚═════╝░`)
-  .replace(/c/g, `
-░█████╗░
-██╔══██╗
-██║░░╚═╝
-██║░░██╗
-╚█████╔╝
-░╚════╝░`)
-  .replace(/d|đ/g, `
-██████╗░
-██╔══██╗
-██║░░██║
-██║░░██║
-██████╔╝
-╚═════╝░`)
-  .replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|e/g, `
-███████╗
-██╔════╝
-█████╗░░
-██╔══╝░░
-███████╗
-╚══════╝`)
-  .replace(/f/g, `
-███████╗
-██╔════╝
-█████╗░░
-██╔══╝░░
-██║░░░░░
-╚═╝░░░░░`)
-  .replace(/g/g, `
-░██████╗░
-██╔════╝░
-██║░░██╗░
-██║░░╚██╗
-╚██████╔╝
-░╚═════╝░`)
-  .replace(/h/g, `
-██╗░░██╗
-██║░░██║
-███████║
-██╔══██║
-██║░░██║
-╚═╝░░╚═╝`)
-  .replace(/i/g, `
-██╗
-██║
-██║
-██║
-██║
-╚═╝`)
-  .replace(/ì|í|ị|ỉ|ĩ|i/g, `
-░░░░░██╗
-░░░░░██║
-░░░░░██║
-██╗░░██║
-╚█████╔╝
-░╚════╝░`)
-  .replace(/k/g, `
-██╗░░██╗
-██║░██╔╝
-█████═╝░
-██╔═██╗░
-██║░╚██╗
-╚═╝░░╚═╝`)
-  .replace(/l/g, `
-██╗░░░░░
-██║░░░░░
-██║░░░░░
-██║░░░░░
-███████╗
-╚══════╝`)
-  .replace(/m/g, `
-███╗░░░███╗
-████╗░████║
-██╔████╔██║
-██║╚██╔╝██║
-██║░╚═╝░██║
-╚═╝░░░░░╚═╝`)
-  .replace(/n/g, `
-███╗░░██╗
-████╗░██║
-██╔██╗██║
-██║╚████║
-██║░╚███║
-╚═╝░░╚══╝`)
-  .replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ|o/g, `
-░█████╗░
-██╔══██╗
-██║░░██║
-██║░░██║
-╚█████╔╝
-░╚════╝░`)
-  .replace(/p/g, `
-██████╗░
-██╔══██╗
-██████╔╝
-██╔═══╝░
-██║░░░░░
-╚═╝░░░░░`)
-  .replace(/q/g, `
-░██████╗░
-██╔═══██╗
-██║██╗██║
-╚██████╔╝
-░╚═██╔═╝░
-░░░╚═╝░░░`)
-  .replace(/r/g, `
-██████╗░
-██╔══██╗
-██████╔╝
-██╔══██╗
-██║░░██║
-╚═╝░░╚═╝`)
-  .replace(/s/g, `
-░██████╗
-██╔════╝
-╚█████╗░
-░╚═══██╗
-██████╔╝
-╚═════╝░`)
-  .replace(/t/g, `
-████████╗
-╚══██╔══╝
-░░░██║░░░
-░░░██║░░░
-░░░██║░░░
-░░░╚═╝░░░`)
-  .replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|u/g, `
-██╗░░░██╗
-██║░░░██║
-██║░░░██║
-██║░░░██║
-╚██████╔╝
-░╚═════╝░`)
-  .replace(/v/g, `
-██╗░░░██╗
-██║░░░██║
-╚██╗░██╔╝
-░╚████╔╝░
-░░╚██╔╝░░
-░░░╚═╝░░░`)
-  .replace(/x/g, `
-██╗░░██╗
-╚██╗██╔╝
-░╚███╔╝░
-░██╔██╗░
-██╔╝╚██╗
-╚═╝░░╚═╝` )
-  .replace(/ỳ|ý|ỵ|ỷ|ỹ|y/g, `
-██╗░░░██╗
-╚██╗░██╔╝
-░╚████╔╝░
-░░╚██╔╝░░
-░░░██║░░░
-░░░╚═╝░░░`)
-  .replace(/w/g, `
-░██╗░░░░░░░██╗
-░██║░░██╗░░██║
-░╚██╗████╗██╔╝
-░░████╔═████║░
-░░╚██╔╝░╚██╔╝░
-░░░╚═╝░░░╚═╝░░`)
-  .replace(/z/g, `
-███████╗
-╚════██║
-░░███╔═╝
-██╔══╝░░
-███████╗
-╚══════╝`)
-  .replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, "");
-  var arr = text.replace("\n", "").split("\n").filter(item => item.length != 0);
-  var num = (arr.length/6)-1;
-  var main = arr.slice(0,6);
-  var extra = arr.splice(6);
-  var msg = "";
-  var mainlength = main.length;
-  for(let i = 0; i < mainlength; i++) {
-    var txt = main[i];
-    for(let o = 0; o < num; o++) {
-      txt += extra[i+(o*6)];
+module.exports.onLoad = async() => {
+    const { resolve } = global.nodemodule["path"];
+    const { existsSync, mkdirSync } = global.nodemodule["fs-extra"];
+    const { downloadFile } = global.utils;
+    const dirMaterial = __dirname + `/cache/canvas/`;
+    const path = resolve(__dirname, 'cache/canvas', 'love.jpeg');
+    if (!existsSync(dirMaterial + "canvas")) mkdirSync(dirMaterial, { recursive: true });
+    if (!existsSync(path)) await downloadFile("https://i.imgur.com/tVi3R6t.jpg", path);
+}
+
+async function makeImage({ one, two }) {
+    const fs = global.nodemodule["fs-extra"];
+    const path = global.nodemodule["path"];
+    const axios = global.nodemodule["axios"]; 
+    const jimp = global.nodemodule["jimp"];
+    const __root = path.resolve(__dirname, "cache", "canvas");
+
+    let batgiam_img = await jimp.read(__root + "/love.jpeg");
+    let pathImg = __root + `/batman${one}_${two}.jpeg`;
+    let avatarOne = __root + `/avt_${one}.jpeg`;
+    let avatarTwo = __root + `/avt_${two}.jpeg`;
+    
+    let getAvatarOne = (await axios.get(`https://graph.facebook.com/${one}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`, { responseType: 'arraybuffer' })).data;
+    fs.writeFileSync(avatarOne, Buffer.from(getAvatarOne, 'utf-8'));
+    
+    let getAvatarTwo = (await axios.get(`https://graph.facebook.com/${two}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`, { responseType: 'arraybuffer' })).data;
+    fs.writeFileSync(avatarTwo, Buffer.from(getAvatarTwo, 'utf-8'));
+    
+    let circleOne = await jimp.read(await circle(avatarOne));
+    let circleTwo = await jimp.read(await circle(avatarTwo));
+    batgiam_img.composite(circleOne.resize(230, 230), 40, 90).composite(circleTwo.resize(230, 230), 430, 90);
+    
+    let raw = await batgiam_img.getBufferAsync("image/jpeg");
+    
+    fs.writeFileSync(pathImg, raw);
+    fs.unlinkSync(avatarOne);
+    fs.unlinkSync(avatarTwo);
+    
+    return pathImg;
+}
+async function circle(image) {
+    const jimp = require("jimp");
+    image = await jimp.read(image);
+    image.circle();
+    return await image.getBufferAsync("image/png");
+}
+
+module.exports.run = async function ({ event, api, args }) {    
+    const fs = global.nodemodule["fs-extra"];
+    const { threadID, messageID, senderID } = event;
+    const mention = Object.keys(event.mentions);
+    if (!mention[0]) return api.sendMessage("Please mention 1 person.", threadID, messageID);
+    else {
+        const one = senderID, two = mention[0];
+        return makeImage({ one, two }).then(path => api.sendMessage({ body: "`𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥 𝐩𝐚𝐢𝐫𝐢𝐧𝐠\n  ༺𝐘𝐄 𝐋𝐎 𝐀𝐏𝐊𝐈 𝐖𝐈𝐅𝐄 𝐎𝐑 𝐊𝐎𝐈 𝐇𝐔𝐊𝐀𝐌༻\n━━━━━━━━━━━━━━━━\n*𝐄𝐃𝐈𝐓𝐎𝐑 𝐃𝐀𝐍𝐈 𝐌𝐀𝐋𝐈𝐊", attachment: fs.createReadStream(path) }, threadID, () => fs.unlinkSync(path), messageID));
     }
-    msg += txt+"\n";
-  }
-  return api.sendMessage(msg+"\nView the message on your browser to see more clearly", event.threadID, event.messageID);
 }
