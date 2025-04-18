@@ -32,6 +32,6 @@ module.exports.run = function ({ event, api }) {
 
 
 
-    return api.sendMessage(`𝐂𝐇𝐀𝐍𝐃 𝐊𝐈 𝐁𝐈𝐑𝐓𝐇𝐃𝐀𝐘 𝐌𝐀𝐈𝐍 𝐉𝐔𝐒𝐓\n» ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds« 𝐑𝐇𝐓𝐀 𝐇𝐀𝐈`, event.threadID, event.messageID);
+    return api.sendMessage(`𝐃𝐀𝐍𝐈 𝐊𝐈 𝐁𝐈𝐑𝐓𝐇𝐃𝐀𝐘 𝐌𝐀𝐈𝐍 𝐉𝐔𝐒𝐓\n» ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds« 𝐑𝐇𝐓𝐀 𝐇𝐀𝐈`, event.threadID, event.messageID);
 
 }
