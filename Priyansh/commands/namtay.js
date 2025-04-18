@@ -1,80 +1,26 @@
 module.exports.config = {
-    name: "hand",
-    version: "2.0.0",
+    name: "owner",
+    version: "1.0.0",
     hasPermssion: 0,
-    credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
-    description: "",
-    commandCategory: "Love",
-    usages: "[tag]",
+    credits: "... - Long LTD",
+    description: "War In Chatbox",
+    commandCategory: "Noprefix",
+    usages: "noprefix",
     cooldowns: 5,
     dependencies: {
-        "axios": "",
         "fs-extra": "",
-        "path": "",
-        "jimp": ""
+        "axios": ""
     }
-};
-
-module.exports.onLoad = async() => {
-    const { resolve } = global.nodemodule["path"];
-    const { existsSync, mkdirSync } = global.nodemodule["fs-extra"];
-    const { downloadFile } = global.utils;
-    const dirMaterial = __dirname + `/cache/canvas/`;
-    const path = resolve(__dirname, 'cache/canvas', 'namtay.png');
-    if (!existsSync(dirMaterial + "canvas")) mkdirSync(dirMaterial, { recursive: true });
-    if (!existsSync(path)) await downloadFile("https://imgur.com/vcG4det.jpg", path);
 }
 
-async function makeImage({ one, two }) {
-    const fs = global.nodemodule["fs-extra"];
-    const path = global.nodemodule["path"];
-    const axios = global.nodemodule["axios"]; 
-    const jimp = global.nodemodule["jimp"];
-    const __root = path.resolve(__dirname, "cache", "canvas");
+module.exports.run = async function({ api, args, Users, event}) {
+ var mention = Object.keys(event.mentions)[0];
+    
+ let name =  event.mentions[mention];
+    var arraytag = [];
+        arraytag.push({id: mention});
+    var a = function (a) { api.sendMessage(a, event.threadID); }
+a("☞⚞ 𝐀𝐃𝐌𝐈𝐍 𝐈𝐍𝐅𝐎⚟☜\n\n✧❁ 𝗗𝗔𝗡𝗜 𝗠𝗔𝗟𝗜𝗞 ❁✧\n\n〠𝗢𝗪𝗡𝗘𝗥〠\n≼≽𝗗𝗔𝗡𝗜 𝗕𝗥𝗔𝗡𝗗≼\n\n☬𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗧𝗢 𝗢𝗪𝗡𝗘𝗥☬\n➝𝗙𝗔𝗖𝗘𝗕𝗢𝗢𝗞 𝗟𝗜𝗡𝗞⊰⁠⊹ฺ: \nhttps://www.facebook.com/100083009085825\n\n⇉ 𝐍𝐎𝐓𝐄\n\╭⁠☞𝗗𝗼𝗻'𝘁 𝗖𝗼𝗽𝘆 𝗜𝗻𝗳𝗼 𝗠𝗼𝗱𝘂𝗹𝗲 𝗪𝗶𝘁𝗵𝗼𝘂𝘁 𝗣𝗲𝗿𝗺𝗶𝘀𝘀𝗶𝗼𝗻 𝗙𝘂𝗰𝗞 𝗬𝗼𝘂⭐💙\n\n✨𝐃𝐨𝐛𝐨𝐫𝐚 𝐌𝐢𝐥𝐘𝐧 𝐠𝐚𝐘 𝐤𝐬𝐢 𝐌𝐨𝐨𝐫 𝐏𝐲\n\n𝐉𝐨 𝐁𝐚𝐪𝐢 𝐇𝐚𝐢 𝐖𝐨 𝐁𝐚𝐭 𝐇𝐨 𝐆𝐢 𝐊𝐛𝐡𝐢\n\n𝐂𝐡𝐚𝐥𝐨 𝐀𝐣 𝐂𝐡𝐚𝐥𝐭𝐘 𝐇𝐧 𝐇𝐚𝐦..\n\n𝐏𝐡𝐞𝐫 𝐌𝐮𝐥𝐚𝐪𝐚𝐭 𝐇𝐨 𝐠𝐢 𝐤𝐛𝐇𝐢\n𝐏𝐡𝐞𝐫 𝐌𝐮𝐥𝐚𝐪𝐚𝐭 𝐇𝐨 𝐠𝐢 𝐤𝐛𝐇𝐢\n\n𝐉𝐮𝐝𝐚 𝐇𝐨 𝐑𝐚𝐇𝐲 𝐇𝐧 𝐐𝐚𝐝𝐚𝐦 \n\n 𝐏𝐡𝐞𝐑 𝐌𝐮𝐥𝐚𝐪𝐚𝐭 𝐇𝐨 𝐆𝐢 𝐤𝐛𝐡𝐢 🙂🧡\n\n\n𝗖𝗿𝗲𝗱𝗶𝘁\n ≼≽𝐀𝐞𝐬𝐭𝐇𝐞𝐭𝐢𝐜 𝐁𝐨𝐘 𝗗𝗔𝗡𝗜≼≽");
+  
 
-    let namtay_img = await jimp.read(__root + "/namtay.png");
-    let pathImg = __root + `/namtay_${one}_${two}.png`;
-    let avatarOne = __root + `/avt_${one}.png`;
-    let avatarTwo = __root + `/avt_${two}.png`;
-    
-    let getAvatarOne = (await axios.get(`https://graph.facebook.com/${one}/picture?height=720&width=720&access_token=1073911769817594|aa417da57f9e260d1ac1ec4530b417de`, { responseType: 'arraybuffer' })).data;
-    fs.writeFileSync(avatarOne, Buffer.from(getAvatarOne, 'utf-8'));
-    
-    let getAvatarTwo = (await axios.get(`https://graph.facebook.com/${two}/picture?height=720&width=720&access_token=1073911769817594|aa417da57f9e260d1ac1ec4530b417de`, { responseType: 'arraybuffer' })).data;
-    fs.writeFileSync(avatarTwo, Buffer.from(getAvatarTwo, 'utf-8'));
-    
-    let circleOne = await jimp.read(await circle(avatarOne));
-    let circleTwo = await jimp.read(await circle(avatarTwo));
-    namtay_img.resize(700, 440).composite(circleOne.resize(50, 50), 287, 97).composite(circleTwo.resize(40, 40), 50, 137);
-    
-    let raw = await namtay_img.getBufferAsync("image/png");
-    
-    fs.writeFileSync(pathImg, raw);
-    fs.unlinkSync(avatarOne);
-    fs.unlinkSync(avatarTwo);
-    
-    return pathImg;
-}
-async function circle(image) {
-    const jimp = require("jimp");
-    image = await jimp.read(image);
-    image.circle();
-    return await image.getBufferAsync("image/png");
-}
-
-module.exports.run = async function ({ event, api, args }) {
-    const fs = global.nodemodule["fs-extra"];
-    const { threadID, messageID, senderID } = event;
-    var mention = Object.keys(event.mentions)[0]
-    let tag = event.mentions[mention].replace("@", "");
-    if (!mention) return api.sendMessage("Please tag one person.", threadID, messageID);
-    else {
-        var one = senderID, two = mention;
-        return makeImage({ one, two }).then(path => api.sendMessage({ body: "Hold hands tightly " + tag + ' don't let go bae😍',
-            mentions: [{
-          tag: tag,
-          id: mention
-        }],
-     attachment: fs.createReadStream(path) }, threadID, () => fs.unlinkSync(path), messageID));
-    }
 }
