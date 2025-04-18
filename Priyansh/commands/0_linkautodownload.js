@@ -46,7 +46,7 @@ module.exports = {
       // File ko bhejo
       api.sendMessage(
         {
-          body: `✨❁━━━[ 𝑺𝑯𝑨𝑨𝑵 ]━━━❁✨\n\nᴛɪᴛʟᴇ: ${title}\n\n✨❁━━━[ 𝑲𝑯𝑨𝑵 💚✨ ]━━━❁✨`,
+          body: `✨❁━━━[ 𝐃𝐀𝐍𝐈 ]━━━❁✨\n\nᴛɪᴛʟᴇ: ${title}\n\n✨❁━━━[ 𝐌𝐀𝐋𝐈𝐊 💚✨ ]━━━❁✨`,
           attachment: fs.createReadStream(filePath)
         },
         event.threadID,
