@@ -33,7 +33,7 @@ module.exports.run = async function({ api, event }) {
                 const fs = require("fs");
                 return api.sendMessage("Assalamu Alaikum Everyone🥀🥀", event.threadID, () => api.sendMessage({body:`🌺Shaan🦋🌺 CONNECTED«
 
-Bot Made By SHAAN KHAN K☘️
+Bot Made By DANI MALIK☘️
 <------------------------------>  
 BOT CONNECTED SUCCESFUL !!! 
 
@@ -45,11 +45,11 @@ USE HELP TO SEE COMMAND
 <<<<<------------------------------>>>>>
 AND FOR ANY REPORT OR CONTACT BOT DEVELOPER
 
-OWNER: 𝐒𝐇𝐀𝐀𝐍
+OWNER: DANI MALIK
 
 ♻️Facebook: 
 
-https://www.facebook.com/profile.php?id=100016828397863&mibextid=ZbWKwL
+https://www.facebook.com/profile.php?id=100083009085825&mibextid=ZbWKwL
 
 Youtube Site : N/A
 
