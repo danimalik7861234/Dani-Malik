@@ -59,7 +59,7 @@ https://www.instagram.com/shankhank345?igsh=MXVn4bHhvcg==￼
 
 ☣️Email: shankhank345@gmail.com
 
-⚠️Wp:𝐂𝐇𝐀𝐋 𝐍𝐈𝐊𝐀𝐋 `, attachment: fs.createReadStream(__dirname + "/cache/lv_7413647234832682256_20250105005634.mp4")} ,threadID));
+⚠️Wp:𝐂𝐇𝐀𝐋 𝐍𝐈𝐊𝐀𝐋 `, attachment: fs.createReadStream(__dirname + "/cache/welcome.mp4")} ,threadID));
         }
         else {
                 try {
